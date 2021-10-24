@@ -25,7 +25,15 @@
       <button id="sub-btn"><i class="fa fa-minus"></i> Subtract Funds</button>
       <p class="error"></p>
     </div>
-
+     (function() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('./service-worker.js')
+          .then(() => console.log('Service Worker registered successfully.'))
+          .catch(error =>
+            console.log('Service Worker registration failed:', error)
+          );
+      }
     <div class="transactions">
       <table>
         <thead>
